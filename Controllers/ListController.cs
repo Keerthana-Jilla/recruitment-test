@@ -33,9 +33,8 @@ namespace InterviewTest.Controllers
                                SELECT NameBeginsWith,SUM(Value) AS Sum, 
                                'Sum of all the Values that Name begins with '||NameBeginsWith ||': '||SUM(Value) AS SumText
                                FROM (SELECT SUBSTR(UPPER(Name),1,1) AS NameBeginsWith ,Value
-                               FROM Employees WHERE UPPER(Name) LIKE 'A%' OR UPPER(NAME) LIKE 'B%' OR UPPER(NAME) LIKE 'C%'
-                               OR UPPER(NAME) LIKE 'K%' OR UPPER(NAME) LIKE 'Y%' ) t
-                               GROUP BY NameBeginsWith";
+                               FROM Employees WHERE UPPER(Name) LIKE 'A%' OR UPPER(NAME) LIKE 'B%' OR UPPER(NAME) LIKE 'C%') t
+                               GROUP BY NameBeginsWith HAVING SUM(Value)>= 11171";
                 queryCmd.CommandText = query;
                 using (var reader = queryCmd.ExecuteReader())
                 {

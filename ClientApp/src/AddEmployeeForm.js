@@ -9,10 +9,10 @@ export default function AddEmployeeForm(props) {
 
     const [formData, setFormData] = useState(initialFormData);
     const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
+            setFormData({
+                ...formData,
+                [e.target.name]: e.target.value,
+            });
     };
 
     const handleSubmit = (e) => {
@@ -23,6 +23,10 @@ export default function AddEmployeeForm(props) {
         }
         else if (isNaN(formData.EmpValue) || formData.EmpValue < 1) {
             alert("Number should not be empty and must be greater than zero");
+            return false;
+        }
+        else if (formData.EmpValue.maxLength > 10) {
+            alert("Number length should be 10");
             return false;
         }
         else {
@@ -62,11 +66,11 @@ export default function AddEmployeeForm(props) {
                     <table className="tbEmpForm"><tbody>
                         <tr>
                             <td><label>Employee Name</label></td>
-                            <td> <input value={formData.EmpName} name="EmpName" type="text" onChange={handleChange} /></td>
+                            <td> <input value={formData.EmpName} name="EmpName" type="text" onChange={handleChange} maxLength="20" /></td>
                         </tr>
                         <tr>
                             <td> <label>Employee Value</label></td>
-                            <td> <input value={formData.EmpValue} name="EmpValue" type="number" onChange={handleChange} /></td>
+                            <td> <input value={formData.EmpValue} name="EmpValue" type="number" onChange={handleChange} maxLength="20" max="1000000" /></td>
                         </tr>
                         <tr>
                             <td><button onClick={handleSubmit} CssClass="btn btn-primary">Submit</button>

@@ -94,8 +94,8 @@ namespace InterviewTest.Controllers
                     insertEmployeeCmd.CommandText = query;
                     insertEmployeeCmd.ExecuteNonQuery();
 
-                    string updValQuery = @"UPDATE Employees SET Value= CASE WHEN UPPER(Name) LIKE 'K%' THEN (Value + 1) WHEN UPPER(Name)" +
-                        " LIKE 'A%' THEN(Value + 10) ELSE (Value + 100) END WHERE UPPER(Name) LIKE @nameBeginsWith";
+                    string updValQuery = @"UPDATE Employees SET Value= CASE WHEN UPPER(Name) LIKE 'E%' THEN (Value + 1) WHEN UPPER(Name)" +
+                        " LIKE 'G%' THEN(Value + 10) ELSE (Value + 100) END WHERE UPPER(Name) LIKE @nameBeginsWith";
                     insertEmployeeCmd.Parameters.AddWithValue("@nameBeginsWith", emp.Name.Substring(0, 1) + "%");
                     insertEmployeeCmd.CommandText = updValQuery;
                     rowCount = Convert.ToInt32(insertEmployeeCmd.ExecuteNonQuery());
@@ -143,8 +143,8 @@ namespace InterviewTest.Controllers
                     updateEmployeeCmd.CommandText = query;
                     updateEmployeeCmd.ExecuteNonQuery();
 
-                    string updValQuery = @"UPDATE Employees SET Value= CASE WHEN UPPER(Name) LIKE 'K%' THEN (Value + 1) WHEN UPPER(Name)" +
-                        " LIKE 'A%' THEN(Value + 10) ELSE (Value + 100) END WHERE UPPER(Name) LIKE @nameBeginsWith";
+                    string updValQuery = @"UPDATE Employees SET Value= CASE WHEN UPPER(Name) LIKE 'E%' THEN (Value + 1) WHEN UPPER(Name)" +
+                        " LIKE 'G%' THEN(Value + 10) ELSE (Value + 100) END WHERE UPPER(Name) LIKE @nameBeginsWith";
                     updateEmployeeCmd.Parameters.AddWithValue("@nameBeginsWith", emp.Name.Substring(0, 1) + "%");
                     updateEmployeeCmd.CommandText = updValQuery;
                     rowCount = Convert.ToInt32(updateEmployeeCmd.ExecuteNonQuery());
