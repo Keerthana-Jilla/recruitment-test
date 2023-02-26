@@ -28,12 +28,16 @@ export default function UpdateEmployeeForm(props) {
             alert("Name must be filled out");
             return false;
         }
-        else if (isNaN(formData.EmpValue) || formData.EmpValue < 1) {
-            alert("Number should not be empty and must be greater than zero");
+        else if (isNaN(formData.EmpValue)) {
+            alert("Invalid Number");
             return false;
         }
-        else if (formData.EmpValue.maxLength > 10) {
-            alert("Number length should be 10");
+        else if (formData.EmpValue < 1) {
+            alert("Number must be greater than zero");
+            return false;
+        }
+        else if (formData.EmpValue > 10000000) {
+            alert("Number must be less than 10000000");
             return false;
         }
         else {
@@ -79,7 +83,7 @@ export default function UpdateEmployeeForm(props) {
                         </tr>
                         <tr>
                             <td><label>Employee Value</label></td>
-                            <td><input value={formData.EmpValue} name="EmpValue" type="text" onChange={handleChange} maxLength="20" /></td>
+                            <td><input value={formData.EmpValue} name="EmpValue" type="text" onChange={handleChange} maxLength="20" max="2000000" /></td>
                         </tr>
                         <tr>
                             <td><button onClick={handleSubmit} CssClass="btn btn-primary">Update</button>

@@ -73,7 +73,7 @@ namespace InterviewTest
                 delTableCmd.ExecuteNonQuery();
 
                 var createTableCmd = connection.CreateCommand();
-                createTableCmd.CommandText = "CREATE TABLE Employees(ID INTEGER PRIMARY KEY AUTOINCREMENT,Name VARCHAR(50), Value INT)";
+                createTableCmd.CommandText = "CREATE TABLE Employees(ID INTEGER PRIMARY KEY AUTOINCREMENT,Name VARCHAR(50), Value BIGINT)";
                 createTableCmd.ExecuteNonQuery();
 
                 //Fill with data

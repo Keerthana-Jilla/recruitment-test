@@ -73,9 +73,9 @@ namespace InterviewTest.Controllers
             }
             catch (Exception ex)
             {
-                return new JsonResult("There is some issue with the server. Please try again");
+                return new JsonResult(Constants.Errormsg);
             }
-            return new JsonResult("Deleted Employee Successfully");
+            return new JsonResult(Constants.DelSuccmsg);
         }
 
         [HttpPost]
@@ -104,21 +104,21 @@ namespace InterviewTest.Controllers
                 {
                     switch (emp.Name.Substring(0, 1).ToUpper())
                     {
-                        case "K":
-                            responseMessage = "Total number of records incremented by 1 are " + rowCount;
+                        case "E":
+                            responseMessage = Constants.Incrementby1msg + rowCount;
                             break;
-                        case "A":
-                            responseMessage = "Total number of records incremented by 10 are " + rowCount;
+                        case "G":
+                            responseMessage = Constants.Incrementby10msg + rowCount;
                             break;
                         default:
-                            responseMessage = "Total number of records incremented by 100 are " + rowCount;
+                            responseMessage = Constants.Incrementby100msg + rowCount;
                             break;
                     }
                 }
             }
             catch (Exception ex)
             {
-                return new JsonResult("There is some issue with the server. Please try again");
+                return new JsonResult(Constants.Errormsg);
             }
             return new JsonResult(responseMessage);
 
@@ -153,21 +153,21 @@ namespace InterviewTest.Controllers
                 {
                     switch (emp.Name.Substring(0, 1).ToUpper())
                     {
-                        case "K":
-                            responseMessage = "Total number of records incremented by 1 are " + rowCount;
+                        case "E":
+                            responseMessage = Constants.Incrementby1msg + rowCount;
                             break;
-                        case "A":
-                            responseMessage = "Total number of records incremented by 10 are " + rowCount;
+                        case "G":
+                            responseMessage = Constants.Incrementby10msg + rowCount;
                             break;
                         default:
-                            responseMessage = "Total number of records incremented by 100 are " + rowCount;
+                            responseMessage = Constants.Incrementby100msg + rowCount;
                             break;
                     }
                 }
             }
             catch (Exception ex)
             {
-                return new JsonResult("There is some issue with the server. Please try again");
+                return new JsonResult(Constants.Errormsg);
             }
             return new JsonResult(responseMessage);
         }

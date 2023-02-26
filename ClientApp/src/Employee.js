@@ -95,8 +95,8 @@ function Employee() {
         if (index !== -1) {
             empListCopy[index] = employeeUpdated;
         }
-        setempList(empListCopy);
         setTimeout(() => {
+            getEmployees();
             getsumValues();
         }, 1000);
     }

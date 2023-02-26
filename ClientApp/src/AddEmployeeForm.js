@@ -21,12 +21,16 @@ export default function AddEmployeeForm(props) {
             alert("Name must be filled out");
             return false;
         }
-        else if (isNaN(formData.EmpValue) || formData.EmpValue < 1) {
-            alert("Number should not be empty and must be greater than zero");
+        else if (isNaN(formData.EmpValue)) {
+            alert("Invalid Number");
             return false;
         }
-        else if (formData.EmpValue.maxLength > 10) {
-            alert("Number length should be 10");
+        else if (formData.EmpValue < 1) {
+            alert("Number must be greater than zero");
+            return false;
+        }
+        else if (formData.EmpValue > 10000000) {
+            alert("Number must be less than 10000000");
             return false;
         }
         else {
